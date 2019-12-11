@@ -5,11 +5,22 @@ import InputsContainer from '.././InputsContainer/InputsContainer'
 
 class CalcContainer extends Component {
 
+	state = {
+		number1: "0"
+	};
+
+	onNumberClick = (number) => {
+		const currentNumber = this.state.number1;
+		const updatetNumber = currentNumber.concat(number);
+		this.setState({number1: updatetNumber})
+
+	};
+
 	render(){
 		return(
 			<div className="CalcContainer">
-				<Screen/>
-				<InputsContainer/>
+				<Screen text={this.state.number1}/>
+				<InputsContainer onNumberClick={this.onNumberClick}/>
 			</div>
 		)
 	};
