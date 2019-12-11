@@ -24,7 +24,6 @@ const NumbersPanel = (props) => {
 			</div>
 			<div>
 				<Button label="0" onClick={() => {onNumberClick('0')}} />
-				<Button label="." onClick={() => {onNumberClick('.')}} />
 				<Button label="=" onClick={() => {}} />
 			</div>
 		</div>

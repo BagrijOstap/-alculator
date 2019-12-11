@@ -11,9 +11,8 @@ class CalcContainer extends Component {
 
 	onNumberClick = (number) => {
 		const currentNumber = this.state.number1;
-		const updatetNumber = currentNumber.concat(number);
-		this.setState({number1: updatetNumber})
-
+		const updatetNumber = currentNumber !== '0' ? currentNumber.concat(number) : number ;
+		this.setState({number1: updatetNumber});
 	};
 
 	render(){
