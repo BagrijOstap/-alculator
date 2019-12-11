@@ -1,5 +1,5 @@
 import React from 'react';
-import './NumbersPanel';
+import './NumbersPanel.css';
 import Button from '../Button/Button'
 
 const NumbersPanel = (props) => {

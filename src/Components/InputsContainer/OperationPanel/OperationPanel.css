@@ -1,0 +1,8 @@
+.OperationPanel {
+  display: inline-block;
+}
+
+.OperationPanel .simpleButton {
+    display: block;
+
+}
