@@ -4,8 +4,9 @@ import PropTypes from 'prop-types';
 
 class Screen extends Component {
 
-	render() {
+	render(props) {
 		const number = this.props.text;
+
 		return(
 			<div className="Screen">
 				<h3>{number}</h3>
@@ -16,6 +17,7 @@ class Screen extends Component {
 
 Screen.propTypes = {
 	text: PropTypes.string.isRequired,
+
 };
 
 export default Screen;

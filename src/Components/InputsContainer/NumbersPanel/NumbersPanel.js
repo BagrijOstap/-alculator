@@ -4,6 +4,8 @@ import Button from '../Button/Button'
 
 const NumbersPanel = (props) => {
 	const onNumberClick = props.onNumberClick;
+	const onEqual = props.onEqual;
+
 
 	return(
 		<div className="NumbersPanel" >
@@ -24,7 +26,8 @@ const NumbersPanel = (props) => {
 			</div>
 			<div>
 				<Button label="0" onClick={() => {onNumberClick('0')}} />
-				<Button label="=" onClick={() => {}} />
+				<Button label="." onClick={() => {onNumberClick('.')}} />
+				<Button label="=" onClick={() => {onEqual()}} />
 			</div>
 		</div>
 	)

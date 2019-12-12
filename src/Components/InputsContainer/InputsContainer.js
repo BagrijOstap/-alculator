@@ -6,10 +6,14 @@ import OperationPanel from './OperationPanel/OperationPanel'
 const InputsContainer = (props) => {
 		return(
 			<div className="InputsContainer">
-				<NumbersPanel onNumberClick={props.onNumberClick}/>
+				<NumbersPanel
+					onNumberClick={props.onNumberClick}
+					onEqual={props.onEqual}
+				/>
 				<OperationPanel
 					setOperation={props.setOperation}
 					onClear={props.onClear}
+
 				/>
 			</div>
 		)

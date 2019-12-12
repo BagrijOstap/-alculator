@@ -35,14 +35,59 @@ class CalcContainer extends Component {
 		})
 	};
 
+	stringToNumber = (stringValue) => {
+		if (stringValue === '.'){
+			return 0;
+		} return parseFloat(stringValue);
+		console.log(stringValue)
+	};
+
+	onEqual = () => {
+		const number1 = this.stringToNumber(this.state.number1);
+		const number2 = this.stringToNumber(this.state.number2);
+		const operation = this.state.operation;
+		let result;
+
+		if (operation == '/' && number2 == '0'){
+			alert('Неможливо поділити на 0')
+		} else if (operation !== '') {
+				switch (operation) {
+					case '+': {
+						result = number1 + number2;
+						break;
+					}
+					case '-': {
+						result = number1 - number2;
+						break;
+					}
+					case '*': {
+						result = number1 * number2;
+						break;
+					}
+					case '/': {
+						result = number1 / number2;
+						break;
+					}
+					default: break;
+				}
+
+				this.setState({number1: result.toString(), number2: '0', operation: ''});
+		};
+
+	};
+
 	render(){
+
 		return(
 			<div className="CalcContainer">
-				<Screen text={this.state.operation === '' ? this.state.number1 : this.state.number2}/>
+				<Screen
+					text={this.state.operation === '' ? this.state.number1 : this.state.number2}
+				/>
 				<InputsContainer
 					onNumberClick={this.onNumberClick}
 					setOperation={this.setOperation}
 					onClear={this.onClear}
+					onEqual={this.onEqual}
 				/>
 			</div>
 		)
