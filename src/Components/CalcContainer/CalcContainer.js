@@ -12,15 +12,12 @@ class CalcContainer extends Component {
 	};
 
 	onNumberClick = (number) => {
-		if (this.state.operation === '') {
-			const currentNumber = this.state.number1;
-			const updatetNumber = currentNumber !== '0' ? currentNumber.concat(number) : number;
-			this.setState({number1: updatetNumber});
-		} else {
-			const currentNumber = this.state.number2;
-			const updatetNumber = currentNumber !== '0' ? currentNumber.concat(number) : number;
-			this.setState({number2: updatetNumber});
+		const currentNumber = this.state.operation === '' ? this.state.number1 : this.state.number2;
+		if(number === '.' && currentNumber.includes('.')) {
+			return;
 		}
+		const updatetNumber = currentNumber !== '0' ? currentNumber.concat(number) : number;
+		this.setState(this.state.operation === '' ? { number1: updatetNumber } : { number2: updatetNumber });
 	};
 
 	setOperation = (operation) => {
@@ -39,7 +36,6 @@ class CalcContainer extends Component {
 		if (stringValue === '.'){
 			return 0;
 		} return parseFloat(stringValue);
-		console.log(stringValue)
 	};
 
 	onEqual = () => {
@@ -48,7 +44,7 @@ class CalcContainer extends Component {
 		const operation = this.state.operation;
 		let result;
 
-		if (operation == '/' && number2 == '0'){
+		if (operation === '/' && number2 === '0'){
 			alert('Неможливо поділити на 0')
 		} else if (operation !== '') {
 				switch (operation) {
